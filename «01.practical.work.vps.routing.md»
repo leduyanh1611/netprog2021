@@ -27,17 +27,17 @@ rtt min/avg/max/mdev = 4.573/24.899/71.370/23.980 ms
 \end{section}
 
 \begin{section}{Traceroute from vpn to usth.edu.vn}
-There are 28 hops from the vpn to usth.edu.vn
+There are 23 hops from the vpn to usth.edu.vn
 \begin{verbatim}
-ubuntu@ubuntu:~/Desktop/github/netprog2021$ traceroute 35.247.133.5
-traceroute to 35.247.133.5 (35.247.133.5), 30 hops max, 60 byte packets
- 1  _gateway (192.168.164.2)  0.138 ms  0.050 ms  0.107 ms
+ubuntu@instance-2:~$ traceroute usth.edu.vn
+traceroute to usth.edu.vn (119.17.215.232), 30 hops max, 60 byte packets
+ 1  * * *
  2  * * *
  3  * * *
  4  * * *
  5  * * *
  6  * * *
- 7  * * *
+ 7  static.netnam.vn (119.17.219.49)  54.018 ms * static.netnam.vn (119.17.219.53)  53.997 ms
  8  * * *
  9  * * *
 10  * * *
@@ -53,12 +53,8 @@ traceroute to 35.247.133.5 (35.247.133.5), 30 hops max, 60 byte packets
 20  * * *
 21  * * *
 22  * * *
-23  * * *
-24  * * *
-25  * * *
-26  * * *
-27  * * *
-28  * *^C
+23  * * *^C
+
 
 \end{verbatim}
 \end{section}
