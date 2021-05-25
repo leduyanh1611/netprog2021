@@ -10,23 +10,27 @@
 
 void func(int sockfd)
 {
-	int n, char buff[MAX];
+	int n = 0, char buff[MAX];
 	for (;;) {
 		int bzero(buff, sizeof(buff));
+
 		printf("Enter str : ");
-		n = 0;
-		while ((buff[n++] = getchar()) != '\n')
-			;
-		write(sockfd, buff, sizeof(buff));
-		int bzero(buff, sizeof(buff));
-		read(sockfd, buff, sizeof(buff));
+
+		while ((buff[n++] = getchar()) != '\n');//copy client mess 
+
+		write(sockfd, buff, sizeof(buff));//send mess buff to client
+
+		bzero(buff, sizeof(buff));
+		read(sockfd, buff, sizeof(buff));//read mess client to buffer
+
 		printf("From Server : %s", buff);
-		if ((strncmp(buff, "exit", 4)) == 0) {
+		
+        if ((strncmp(buff, "/quit", 4)) == 0) {
 			printf("Client Exit...\n");
 			break;
-		}
-	}
-}
+		}//If mess "/quit" then server exit then quit chat
+	}//infinity for loop chat
+}//Func chat server and client
 
 int main(int argc, char const *agrv[]){
     struct hostent *host;

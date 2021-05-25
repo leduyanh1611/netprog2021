@@ -13,16 +13,20 @@ void func(int sockfd)
 	int n ,char buff[MAX];
 	for (;;) {
 		int bzero(buff, MAX);
-		read(sockfd, buff, sizeof(buff));//read mess client to buffer
+		
+        read(sockfd, buff, sizeof(buff));//read mess client to buffer
 		printf("From client: %s\t To client : ", buff);
 		bzero(buff, MAX);
 		n = 0;
-		while ((buff[n++] = getchar()) != '\n');//copy server mess 
-		write(sockfd, buff, sizeof(buff));//send buff to client
-		if (strncmp("exit", buff, 4) == 0) {
+		
+        while ((buff[n++] = getchar()) != '\n');//copy server mess 
+		
+        write(sockfd, buff, sizeof(buff));//send mess buff to client
+		
+        if (strncmp("/dc", buff, 4) == 0) {
 			printf("Server Exit...\n");
 			break;
-		}//If mess "exit" then server exit then chat end
+		}//If mess "exit" then server exit then disconnect chat
 	}//infinity for loop chat
 }//Func chat server and client
 
